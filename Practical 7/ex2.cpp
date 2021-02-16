@@ -110,5 +110,27 @@ int main() {
   stack.print();
   // printing top element of the stack
   cout << stack.top() << endl;
+  // trying if exceptions work
+  // 1. Adding too many elements
+  try {
+    stack.push(5);
+    stack.push(6);
+    stack.push(7);
+  } catch (FullStackException e) {
+    cout << e.what() << endl;
+  }
+  stack.print();
+  // 2. Popping too many elements
+  try {
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+    stack.pop();
+  } catch (EmptyStackException e) {
+    cout << e.what() << endl;
+  }
+  stack.print();
   return 0;
 }
